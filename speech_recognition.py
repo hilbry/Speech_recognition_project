@@ -16,7 +16,7 @@ import time
 
 import os
 
-from gtts import gTTs
+from gtts import gTTS
 
 import pyglet #module for audio and video
 
@@ -51,14 +51,14 @@ def recordAudio():
 
 #check error and exception
 
-try:
-    data_stored = rec.recognize_google(audio)#use googleAPI
-    print("You said: " + data_stored)
-except sr.UnknownValueError:
-        print("Repeat please, I can not understand you")
-except sr.RequestError as e:#In case a file is missing on demand
-        print("Couldn't request results; {0}".format(e))
-    return data_stored
+    try:
+        data_stored = rec.recognize_google(audio)#use googleAPI
+        print("You said: " + data_stored)
+    except sr.UnknownValueError:
+            print("Repeat please, I can not understand you")
+    except sr.RequestError as e:#In case a file is missing on demand
+            print("Couldn't request results; {0}".format(e))
+            return data_stored
 
 #build the person assistante function
 #the function will hold the name of the personal assistante
